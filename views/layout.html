@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body id="body">
+    <div class="navbar">
+      <button id="dark-mode-button" class="button">Dark Mode</button>
+    </div>
+    <div class="container">
+      <div class="card color-1"></div>
+      <div class="card color-2"></div>
+      <div class="card color-3"></div>
+      <div class="card color-4"></div>
+      <div class="card color-5"></div>
+      <div class="card color-6"></div>
+    </div>
+
+    <!-- make this an es6 component!  -->
+    <div class="project-cards-container">
+      <div class="project-card">
+        <img
+          class="project-card-thumbnail"
+          src="../assets/heh.jpg"
+          alt="image of cat"
+        />
+        <div class="project-card-title">Cat</div>
+        <div class="project-card-tags">#cute #silly</div>
+        <div class="project-card-description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
+          deserunt ut? Nesciunt ipsum magni totam!
+        </div>
+
+        <div class="project-card-footer">
+          <span>GitHub</span>
+          <span>View project</span>
+        </div>
+      </div>
+
+      <div id="test"></div>
+    </div>
+    <script>
+      function $(elem) {
+        return document.getElementById(elem);
+      }
+
+      var darkModeOptions = `
+        background-color: #000
+      `;
+      var lightModeOptions = `
+        background-color: #fff
+        `;
+      function darkModeToggle(isActive) {
+        isActive
+          ? ($("body").style.cssText = lightModeOptions)
+          : ($("body").style.cssText = darkModeOptions);
+      }
+      let darkModeBtn = $("dark-mode-button");
+      let isActive = false;
+      darkModeBtn.addEventListener("click", () =>
+        darkModeToggle((isActive = !isActive))
+      );
+    </script>
+  </body>
+</html>
+
+<style>
+  /* project card */
+  .project-card-thumbnail {
+    height: 200px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 3fr 3fr;
+    /* grid-template-rows: 150px; */
+    grid-gap: 10px;
+  }
+  .button {
+    background-color: #4f5ba0; /* Green */
+    border: none;
+    color: #ccc;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .card {
+    height: 150px;
+  }
+  .color-1 {
+    background-color: rgb(211, 211, 159);
+  }
+  .color-2 {
+    background-color: #c29bab;
+  }
+  .color-3 {
+    background-color: rgb(142, 129, 179);
+  }
+  .color-4 {
+    background-color: rgb(190, 162, 140);
+  }
+  .color-5 {
+    background-color: rgb(95, 161, 95);
+  }
+  .color-6 {
+    background-color: rgb(172, 159, 159);
+  }
+</style>
